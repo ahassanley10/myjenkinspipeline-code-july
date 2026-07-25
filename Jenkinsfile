@@ -9,6 +9,11 @@ pipeline {
                 git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
             }
         }
+        stage('code quality check'){
+            steps{
+                sh 'mvn pmd:pmd'
+            }
+        }
         stage('compile the code'){
             steps{
                 sh 'mvn compile'
